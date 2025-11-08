@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'landing.dart';
-import '/../main.dart';
+import '../main.dart'; // fixed relative import
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -13,39 +14,36 @@ class WelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Welcome to NatureQuest',
-              style: TextStyle(
-                fontFamily: 'Merienda',
-                fontSize: 36,
-                fontWeight: FontWeight.w700,
-                color: NatureQuestApp.natureGreen,
-                shadows: [
-                  Shadow(
-                    offset: const Offset(10.0, 5.0),
-                    blurRadius: 5.0,
-                    color: NatureQuestApp.earthyBrown.withOpacity(0.6),
-                  ),
-                ],
-              ),
-              textAlign: TextAlign.center,
+            SvgPicture.asset(
+              'assets/logo_design.svg', 
+              height: 500,
+              width: 500,
             ),
-            const SizedBox(height: 200),
-            Container(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LandingPage()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: NatureQuestApp.softLavender,
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+
+            const SizedBox(height: 10),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LandingPage()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: NatureQuestApp.softLavender,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                child: const Text(
-                  'Start Exploring',
-                  style: TextStyle(fontSize: 22),
+                elevation: 6,
+              ),
+              child: const Text(
+                'Start Exploring',
+                style: TextStyle(
+                  fontSize: 22,
+                  color: NatureQuestApp.softMintGreen,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),

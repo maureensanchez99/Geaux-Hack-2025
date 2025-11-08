@@ -1,5 +1,5 @@
 # naturequest  
-A mobile application that allows students to explore campus and the nature within the grounds. 
+A mobile application that allows students to explore the campus and the nature within the grounds. 
 
 ## Team Members:  
 - Maureen Sanchez (Design Lead)  
@@ -23,3 +23,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.  
+
+## Hardware Implementation
+
+something something idk tweaking ababdbadbadbad

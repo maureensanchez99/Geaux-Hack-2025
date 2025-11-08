@@ -23,7 +23,7 @@ class LandingPage extends StatelessWidget {
                 shadows: [
                   Shadow(
                     offset: const Offset(10.0, 5.0),
-                    blurRadius: 5.0,
+                    blurRadius: 25.0,
                     color: NatureQuestApp.earthyBrown.withOpacity(0.6),
                   ),
                 ]

@@ -7,7 +7,7 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: NatureQuestApp.softMintGreen,
+      backgroundColor: NatureQuestApp.softSunYellow,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -18,7 +18,14 @@ class LandingPage extends StatelessWidget {
                 fontFamily: 'Merienda',
                 fontSize: 32,
                 fontWeight: FontWeight.w700,
-                color: NatureQuestApp.lsuGold,
+                color: NatureQuestApp.natureGreen,
+                shadows: [
+                  Shadow(
+                    offset: const Offset(10.0, 5.0),
+                    blurRadius: 5.0,
+                    color: NatureQuestApp.earthyBrown.withOpacity(0.6),
+                  ),
+                ]
               ),
               textAlign: TextAlign.center,
             ),

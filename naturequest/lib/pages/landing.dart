@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '/../main.dart';
 import 'test.dart';
+import 'mainNavigation.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -59,6 +60,24 @@ class LandingPage extends StatelessWidget {
               ),
               child: const Text(
                 'Sign Up',
+                style: TextStyle(fontSize: 22),
+              ),
+            ),
+                        const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () 
+              {
+                Navigator.push
+                (
+                context,
+                MaterialPageRoute(builder: (context) => const MainNavigation())
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+              ),
+              child: const Text(
+                'Enter Game',
                 style: TextStyle(fontSize: 22),
               ),
             ),

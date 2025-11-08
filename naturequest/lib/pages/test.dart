@@ -1,14 +1,45 @@
 import 'package:flutter/material.dart';
 import '/../main.dart';
 import 'package:nfc_manager/nfc_manager.dart';
-import 'test.dart';
 
-class LandingPage extends StatelessWidget {
+class testpage extends StatelessWidget
+{
+  const testpage({super.key});
+
+  @override
+  Widget build(BuildContext context)
+  {
+    return Scaffold
+    (
+      backgroundColor: NatureQuestApp.softMintGreen,
+      body: Center
+      (
+        child: Column
+        (
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:
+          [
+            
+          ]
+        )
+      )
+    );
+  }
+}
+
+
+
+
+
+class LandingPage extends StatelessWidget 
+{
   const LandingPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) 
+  {
+    return Scaffold
+    (
       backgroundColor: NatureQuestApp.softMintGreen,
       body: Center(
         child: Column(
@@ -32,20 +63,16 @@ class LandingPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
               ),
-              child: const Text(
+              child: const Text
+              (
                 'Log In',
                 style: TextStyle(fontSize: 22),
               ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () 
-              {
-                Navigator.push
-                (
-                context,
-                MaterialPageRoute(builder: (context) => const test())
-                ),
+              onPressed: () {
+                // Navigate to signup page
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '/../main.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
-class testpage extends StatelessWidget
+class Testpage extends StatelessWidget
 {
-  const testpage({super.key});
+  const Testpage({super.key});
 
   @override
   Widget build(BuildContext context)
@@ -19,7 +19,16 @@ class testpage extends StatelessWidget
           mainAxisAlignment: MainAxisAlignment.center,
           children:
           [
-            
+            Text(
+              'This is a test page',
+              style: TextStyle(
+                fontFamily: 'Merienda',
+                fontSize: 32,
+                fontWeight: FontWeight.w700,
+                color: NatureQuestApp.lsuGold,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ]
         )
       )

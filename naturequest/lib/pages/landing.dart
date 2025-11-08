@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '/../main.dart';
-import 'package:nfc_manager/nfc_manager.dart';
 import 'test.dart';
 
 class LandingPage extends StatelessWidget {
@@ -44,8 +43,8 @@ class LandingPage extends StatelessWidget {
                 Navigator.push
                 (
                 context,
-                MaterialPageRoute(builder: (context) => const test())
-                ),
+                MaterialPageRoute(builder: (context) => const Testpage())
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),

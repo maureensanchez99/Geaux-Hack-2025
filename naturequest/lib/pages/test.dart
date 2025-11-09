@@ -36,12 +36,7 @@ class Testpage extends StatelessWidget
   }
 }
 
-
-
-
-
-class LandingPage extends StatelessWidget 
-{
+class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
 
   @override

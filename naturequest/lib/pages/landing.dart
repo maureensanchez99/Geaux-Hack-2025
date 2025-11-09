@@ -72,21 +72,21 @@ class LandingPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MainNavigation()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-              ),
-              child: const Text(
-                'Enter Game',
-                style: TextStyle(fontSize: 22),
-              ),
-            ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => const MainNavigation()),
+            //     );
+            //   },
+            //   style: ElevatedButton.styleFrom(
+            //     padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+            //   ),
+            //   child: const Text(
+            //     'Enter Game',
+            //     style: TextStyle(fontSize: 22),
+            //   ),
+            // ),
           ],
         ),
       ),

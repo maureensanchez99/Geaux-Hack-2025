@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage>
     if (res.statusCode == 200)
     {
       if (!mounted) return;
-      Navigator.pushReplacement( context, MaterialPageRoute(builder: (_) => const MainNavigation()));
+      Navigator.pushReplacement( context, MaterialPageRoute(builder: (_) => MainNavigation(username: username)));
     }
     else
     {

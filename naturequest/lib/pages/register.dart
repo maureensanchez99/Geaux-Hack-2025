@@ -1,10 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:naturequest/pages/landing.dart';
 import 'mainNavigation.dart';
 import '../main.dart'; // fixed relative import
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class RegisterPage extends StatelessWidget {
+const baseURL = 'http://100.111.150.67:8000';
+
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState(); 
+}
+class _RegisterPageState extends State<RegisterPage>
+{
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool _isLoading = false;
+  String? _errorMsg;
+
+  Future<void> _login() async {
+    setState(()
+    {
+      _isLoading = true;
+      _errorMsg = null;
+    }
+    );
+    final username = _usernameController.text.trim();
+    final password = _passwordController.text.trim();
+
+    try
+    {
+      final res = await http.post
+      (
+        Uri.parse('$baseURL/auth/register'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'username': username, 'password': password})
+      );
+    
+    if (res.statusCode == 200)
+    {
+      if (!mounted) return;
+      Navigator.pushReplacement( context, MaterialPageRoute(builder: (_) => LandingPage()));
+    }
+    else
+    {
+      setState(() => _errorMsg = 'Username already taken');
+    }
+    }
+    catch (e)
+    {
+      setState(() => _errorMsg = 'Connection error: $e');
+    }
+    finally
+    {
+      setState(() => _isLoading = false);
+    }
+    
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +84,7 @@ class RegisterPage extends StatelessWidget {
               SizedBox(
                 width: 300,
                 child: TextFormField(
+                  controller: _usernameController,
                   decoration: const InputDecoration(
                     border: UnderlineInputBorder(),
                     labelText: 'Enter your username',
@@ -38,6 +97,7 @@ class RegisterPage extends StatelessWidget {
                 width: 300,
                 child: TextFormField(
                   obscureText: true,
+                  controller: _passwordController,
                   decoration: const InputDecoration(
                     border: UnderlineInputBorder(),
                     labelText: 'Enter your password',
@@ -46,14 +106,14 @@ class RegisterPage extends StatelessWidget {
               ),
               const SizedBox(height: 50),
 
+              if (_errorMsg != null)
+                Text(_errorMsg!, style: const TextStyle(color: Colors.red)),
+              if (_isLoading) const CircularProgressIndicator(),
+
+
               // Login button
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MainNavigation()),
-                  );
-                },
+                onPressed: _isLoading ? null : _login,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: NatureQuestApp.softLavender,
                   padding:
@@ -63,7 +123,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Log In',
+                  'Register In',
                   style: TextStyle(
                     fontSize: 22,
                     color: NatureQuestApp.softSunYellow,

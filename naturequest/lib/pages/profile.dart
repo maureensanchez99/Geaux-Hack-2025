@@ -1,11 +1,71 @@
 import 'package:flutter/material.dart';
 import '/../main.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+const baseURL = 'http://100.111.150.67:8000';
+class ProfilePage extends StatefulWidget {
+  final String username;
+  const ProfilePage({super.key, required this.username});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage>
+{
+  bool _isLoading = false;
+  String? _errorMsg;
+  Map<String, dynamic>? _user;
+
+
+  Future<void> _fetchUser() async
+  {
+    setState(()
+    {
+      _isLoading = true; 
+      _errorMsg = null;
+    });
+
+    try
+    {
+      final uri = Uri.parse('$baseURL/user/${Uri.encodeComponent(widget.username)}');
+      final res = await http.get(uri);
+
+      if(res.statusCode == 200)
+      {
+        final data = jsonDecode(res.body) as Map<String, dynamic>;
+        setState(() => _user = data);
+      }
+      else if (res.statusCode == 404)
+      {
+        setState(() => _errorMsg = 'User not found');
+      }
+      else 
+      {
+        setState(() => 'Server Error: ${res.statusCode}');
+      }
+    }
+    catch (e)
+    {
+      setState(() => _errorMsg = "Connection Error: $e");
+    }
+    finally
+    {
+      if(mounted) setState(() => _isLoading = false);
+    }
+  }
+
+@override
+void initState() 
+{
+  super.initState();
+  _fetchUser();
+}
 
   @override
   Widget build(BuildContext context) {
+    final username = widget.username;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
@@ -39,12 +99,31 @@ class ProfilePage extends StatelessWidget {
           ),
           const SizedBox(height: 40),
           Text(
+          username, // pulled from widget.username
+          style: const TextStyle(
+            fontFamily: 'Merienda',
+            fontSize: 28,
+            color: Colors.black87,
+          ),
+          ),
+          const SizedBox(height: 40),
+          Text(
             'Connected Friends:',
             // Pull friends list from database
             style: TextStyle(
               fontFamily: 'Merienda',
               fontSize: 32,
               fontWeight: FontWeight.w700,
+              color: NatureQuestApp.earthyBrown,
+            ),
+          ),
+          const SizedBox(height: 40),
+          Text(
+            'Damn, you ain\'t got any...',
+            // Pull friends list from database
+            style: TextStyle(
+              fontFamily: 'Merienda',
+              fontSize: 28,
               color: NatureQuestApp.earthyBrown,
             ),
           ),

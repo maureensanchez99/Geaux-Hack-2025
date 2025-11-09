@@ -1,14 +1,86 @@
 import 'package:flutter/material.dart';
+import '/../main.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../main.dart';
 
-class AchievementPage extends StatelessWidget {
-  const AchievementPage({super.key});
+const baseURL = 'http://100.111.150.67:8000';
 
-  final List<bool> badgeStatus = const [true, false, false];
+class AchievementPage extends StatefulWidget {
+  final String username;
+  const AchievementPage({super.key, required this.username});
+
+  @override
+  State<AchievementPage> createState() => _AchievementPageState();
+}
+
+class _AchievementPageState extends State<AchievementPage>
+{
+  bool _isLoading = false;
+  String? _errorMsg;
+  Map<String, dynamic>? _user;
+  int _achievementCount = 0;
+  
+  Future<void> _fetchUser() async
+  {
+    setState(()
+    {
+      _isLoading = true; 
+      _errorMsg = null;
+    });
+
+    try
+    {
+      final uri = Uri.parse('$baseURL/user/${Uri.encodeComponent(widget.username)}');
+      final res = await http.get(uri);
+
+      if(res.statusCode == 200)
+      {
+        final data = jsonDecode(res.body) as Map<String, dynamic>;
+        setState(() 
+        {
+          _user = data;
+          _achievementCount = data['achievements'] ?? 0;
+        });
+      }
+      else if (res.statusCode == 404)
+      {
+        setState(() => _errorMsg = 'User not found');
+      }
+      else 
+      {
+        setState(() => 'Server Error: ${res.statusCode}');
+      }
+    }
+    catch (e)
+    {
+      setState(() => _errorMsg = "Connection Error: $e");
+    }
+    finally
+    {
+      if(mounted) setState(() => _isLoading = false);
+    }
+  }
+
+@override
+void initState() 
+{
+  super.initState();
+  _fetchUser();
+}
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
+
+    final List<bool> badgeStatus = [
+      _achievementCount >= 1, // 1st badge unlocked
+      _achievementCount >= 2, // 2nd badge unlocked
+      _achievementCount >= 3, // 3rd badge unlocked
+    ];
     final List<Map<String, String>> badgeFiles = [
       {
         'locked': 'assets/welcome_badge_grey.svg',

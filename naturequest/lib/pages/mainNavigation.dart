@@ -5,7 +5,8 @@ import 'profile.dart';
 import '../main.dart';
 
 class MainNavigation extends StatefulWidget {
-  const MainNavigation({super.key});
+  final String username;
+  const MainNavigation({super.key, required this.username});
 
   @override
   State<MainNavigation> createState() => _MainNavigationState();
@@ -14,10 +15,10 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int _selectedIndex = 1;
 
-  final List<Widget> _pages = const [
-    AchievementPage(),
-    GamePage(),
-    ProfilePage(),
+  List<Widget> get _pages => [
+    AchievementPage(username: widget.username),
+    GamePage(username: widget.username),
+    ProfilePage(username: widget.username),
   ];
 
   void _onItemTapped(int index) {

@@ -3,7 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '/../main.dart';
 
 class GamePage extends StatelessWidget {
-  const GamePage({super.key});
+  final String username;
+  const GamePage({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {

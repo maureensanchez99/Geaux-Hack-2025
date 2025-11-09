@@ -5,7 +5,7 @@ import '../main.dart';
 class AchievementPage extends StatelessWidget {
   const AchievementPage({super.key});
 
-  final List<bool> badgeStatus = const [true, false, false];
+  final List<bool> badgeStatus = const [false, false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class AchievementPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           Center(
             child: Text(
               'Achievements',

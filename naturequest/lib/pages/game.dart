@@ -9,55 +9,86 @@ class GamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: NatureQuestApp.softSunYellow,
+      resizeToAvoidBottomInset: false, 
       body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // Reduced logo size for better proportion
-                SvgPicture.asset(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+
+              Padding(
+                padding: const EdgeInsets.only(top: 6.0, bottom: 8.0),
+                child: SvgPicture.asset(
                   'assets/logo_design.svg',
                   height: 350,
                   width: 350,
                 ),
+              ),
 
-                Column(
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       'Challenge Location:',
                       style: TextStyle(
                         fontFamily: 'Merienda',
-                        fontSize: 26,
+                        fontSize: 22,
                         fontWeight: FontWeight.w700,
                         color: NatureQuestApp.earthyBrown,
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 10),
+                    Text(
+                      'Find us by the lakes behind Herget Hall',
+                      style: TextStyle(
+                        fontFamily: 'Merienda',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+
                     Text(
                       'Challenge:',
                       style: TextStyle(
                         fontFamily: 'Merienda',
-                        fontSize: 26,
+                        fontSize: 22,
                         fontWeight: FontWeight.w700,
                         color: NatureQuestApp.earthyBrown,
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 30),
-                    SizedBox(
-                      width: 280,
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(),
-                          labelText: 'Enter challenge code',
+                    Text(
+                      'Imitate the call of the local birds',
+                      style: TextStyle(
+                        fontFamily: 'Merienda',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 15),
+
+                    Flexible(
+                      child: SizedBox(
+                        width: 240,
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            labelText: 'Enter challenge code',
+                          ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 20),
+
                     ElevatedButton(
                       onPressed: () {
                         // check if code is correct
@@ -65,8 +96,8 @@ class GamePage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: NatureQuestApp.natureGreen,
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 60,
-                          vertical: 16,
+                          horizontal: 40,
+                          vertical: 12,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -76,7 +107,7 @@ class GamePage extends StatelessWidget {
                       child: const Text(
                         'Submit Code',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
@@ -84,8 +115,8 @@ class GamePage extends StatelessWidget {
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

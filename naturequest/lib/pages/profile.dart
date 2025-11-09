@@ -6,14 +6,15 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> friends = ['Alex', 'Jamie', 'Taylor'];
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
-          // Center only the "Profile" title
+          const SizedBox(height: 40),
           Center(
             child: Text(
               'Profile',
@@ -26,10 +27,10 @@ class ProfilePage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          const SizedBox(height: 80),
+          const SizedBox(height: 60),
+
           Text(
             'Username:',
-            // Pull username from database
             style: TextStyle(
               fontFamily: 'Merienda',
               fontSize: 32,
@@ -37,16 +38,46 @@ class ProfilePage extends StatelessWidget {
               color: NatureQuestApp.earthyBrown,
             ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 100),
+
           Text(
             'Connected Friends:',
-            // Pull friends list from database
             style: TextStyle(
               fontFamily: 'Merienda',
               fontSize: 32,
               fontWeight: FontWeight.w700,
               color: NatureQuestApp.earthyBrown,
             ),
+          ),
+          const SizedBox(height: 60),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: friends.map((friend) {
+              return Column(
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundColor: NatureQuestApp.softLavender,
+                    child: const Icon(
+                      Icons.person,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    friend,
+                    style: TextStyle(
+                      fontFamily: 'Merienda',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: NatureQuestApp.natureGreen,
+                    ),
+                  ),
+                ],
+              );
+            }).toList(),
           ),
         ],
       ),

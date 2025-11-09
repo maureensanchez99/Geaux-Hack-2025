@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '/../main.dart';
 import 'test.dart';
 import 'mainNavigation.dart';
+import 'login.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -15,6 +16,11 @@ class LandingPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SvgPicture.asset(
+              'assets/logo_design.svg',
+              height: 500,
+              width: 500,
+            ),
             Text(
               'Choose an Option',
               style: TextStyle(
@@ -35,7 +41,10 @@ class LandingPage extends StatelessWidget {
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                // Navigate to login page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage())
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
@@ -47,12 +56,10 @@ class LandingPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () 
-              {
-                Navigator.push
-                (
-                context,
-                MaterialPageRoute(builder: (context) => const Testpage())
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Testpage())
                 );
               },
               style: ElevatedButton.styleFrom(

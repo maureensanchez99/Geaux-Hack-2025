@@ -26,4 +26,20 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Hardware Implementation
 
-something something idk tweaking ababdbadbadbad
+Users embark on a nature-themed quest that takes them through 4 (vaguely named) games:
+  - Mockingbird
+  - Tree Hugs
+  - Nature Says
+  - LSU Squirrel Chase
+
+Each game will provide a fun and interesting challenge that involves the user interacting with 
+the natural environment around them. While the app will guide the user through the experience, 
+we will be utilizing extensive hardware implementation to actually present goals for the user. 
+
+Each challenge will be built on the Pro Micro - ATmega32U4 board, and programmed using the Arduino IDE. 
+They will utilize various sensors and methods in creative ways that are (hopefully) equally entertaining
+and challenging. Some will be games, others will be simple tasks that the user must complete before a 
+completion code is displayed on an LCD screen, and the app leads them to the next goal.
+
+All code used for the hardware implementation will be located in the "questchallenges" directory, with explanations of 
+the game/challenge in each file, respectively. 

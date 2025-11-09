@@ -50,7 +50,7 @@ class LandingPage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
               ),
               child: const Text(
-                'Sign Up',
+                'Register',
                 style: TextStyle(fontSize: 22),
               ),
             ),

@@ -17,8 +17,8 @@ class WelcomePage extends StatelessWidget {
             const SizedBox(height: 80),  
             SvgPicture.asset(
               'assets/logo_design.svg',
-              height: 400,
-              width: 400,
+              height: 350,
+              width: 350,
             ),
         
             const Spacer(), 

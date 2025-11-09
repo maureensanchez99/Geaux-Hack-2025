@@ -58,19 +58,19 @@ class AchievementPage extends StatelessWidget {
               fontFamily: 'Merienda',
               fontSize: 30,
               fontWeight: FontWeight.w700,
-              color: NatureQuestApp.natureGreen,
+              color: NatureQuestApp.earthyBrown,
             ),
           ),
 
           const SizedBox(height: 40),
 
           Text(
-            'Badges Collected:',
+            'Badges:',
             style: TextStyle(
               fontFamily: 'Merienda',
               fontSize: 30,
               fontWeight: FontWeight.w700,
-              color: NatureQuestApp.natureGreen,
+              color: NatureQuestApp.earthyBrown,
             ),
           ),
 

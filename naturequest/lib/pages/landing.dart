@@ -19,8 +19,8 @@ class LandingPage extends StatelessWidget {
           children: [
             SvgPicture.asset(
               'assets/logo_design.svg',
-              height: 400,
-              width: 400,
+              height: 350,
+              width: 350,
             ),
             Text(
               'Choose an Option',
@@ -28,7 +28,7 @@ class LandingPage extends StatelessWidget {
                 fontFamily: 'Merienda',
                 fontSize: 32,
                 fontWeight: FontWeight.w700,
-                color: NatureQuestApp.natureGreen,
+                color: NatureQuestApp.earthyBrown,
                 shadows: [
                   Shadow(
                     offset: const Offset(10.0, 5.0),

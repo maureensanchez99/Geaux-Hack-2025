@@ -66,14 +66,15 @@ void initState()
   @override
   Widget build(BuildContext context) {
     final username = widget.username;
+    final List<String> friends = ['Alex', 'Jamie', 'Taylor'];
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
-          // Center only the "Profile" title
+          const SizedBox(height: 40),
           Center(
             child: Text(
               'Profile',
@@ -86,10 +87,10 @@ void initState()
               textAlign: TextAlign.center,
             ),
           ),
-          const SizedBox(height: 80),
+          const SizedBox(height: 60),
+
           Text(
             'Username:',
-            // Pull username from database
             style: TextStyle(
               fontFamily: 'Merienda',
               fontSize: 32,
@@ -97,7 +98,8 @@ void initState()
               color: NatureQuestApp.earthyBrown,
             ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 100),
+
           Text(
           username, // pulled from widget.username
           style: const TextStyle(
@@ -109,7 +111,6 @@ void initState()
           const SizedBox(height: 40),
           Text(
             'Connected Friends:',
-            // Pull friends list from database
             style: TextStyle(
               fontFamily: 'Merienda',
               fontSize: 32,
@@ -117,15 +118,35 @@ void initState()
               color: NatureQuestApp.earthyBrown,
             ),
           ),
-          const SizedBox(height: 40),
-          Text(
-            'Damn, you ain\'t got any...',
-            // Pull friends list from database
-            style: TextStyle(
-              fontFamily: 'Merienda',
-              fontSize: 28,
-              color: NatureQuestApp.earthyBrown,
-            ),
+          const SizedBox(height: 60),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: friends.map((friend) {
+              return Column(
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundColor: NatureQuestApp.softLavender,
+                    child: const Icon(
+                      Icons.person,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    friend,
+                    style: TextStyle(
+                      fontFamily: 'Merienda',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: NatureQuestApp.natureGreen,
+                    ),
+                  ),
+                ],
+              );
+            }).toList(),
           ),
         ],
       ),

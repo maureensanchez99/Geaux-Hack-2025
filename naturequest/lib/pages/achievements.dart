@@ -102,7 +102,7 @@ void initState()
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           Center(
             child: Text(
               'Achievements',

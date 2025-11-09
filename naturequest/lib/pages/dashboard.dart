@@ -7,7 +7,7 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        'Dashboard Page',
+        'Achievements',
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
     );

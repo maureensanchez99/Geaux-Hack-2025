@@ -41,11 +41,11 @@ class _MainNavigationState extends State<MainNavigation> {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard_outlined),
-            label: 'Dashboard',
+            icon: Icon(Icons.emoji_events_outlined),
+            label: 'Achievements',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.nature_outlined),
+            icon: Icon(Icons.videogame_asset),
             label: 'Game',
           ),
           BottomNavigationBarItem(

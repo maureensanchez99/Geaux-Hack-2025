@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'landing.dart';
-import '/../main.dart';
+import '../main.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -8,36 +9,46 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: NatureQuestApp.softMintGreen,
+      backgroundColor: NatureQuestApp.softSunYellow,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center, 
           children: [
-            Text(
-              'Welcome to Nature Quest',
-              style: TextStyle(
-                fontFamily: 'Merienda',
-                fontSize: 36,
-                fontWeight: FontWeight.w700,
-                color: NatureQuestApp.lsuGold,
-              ),
-              textAlign: TextAlign.center,
+            const SizedBox(height: 80),  
+            SvgPicture.asset(
+              'assets/logo_design.svg',
+              height: 500,
+              width: 500,
             ),
-            const SizedBox(height: 50),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LandingPage()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: NatureQuestApp.lsuPurple,
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              ),
-              child: const Text(
-                'Start Exploring',
-                style: TextStyle(fontSize: 22),
+        
+            const Spacer(), 
+        
+            Padding(
+              padding: const EdgeInsets.only(bottom: 150.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LandingPage()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: NatureQuestApp.softLavender,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  elevation: 6,
+                ),
+                child: const Text(
+                  'Start Exploring',
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: NatureQuestApp.softSunYellow,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
             ),
           ],

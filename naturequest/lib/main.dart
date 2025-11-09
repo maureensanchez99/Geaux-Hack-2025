@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'pages/welcome_page.dart';
 
 void main() {
@@ -9,8 +10,6 @@ class NatureQuestApp extends StatelessWidget {
   const NatureQuestApp({super.key});
 
   // Color constants
-  static const Color lsuPurple = Color(0xFF461D7C);
-  static const Color lsuGold = Color(0xFFFDD023);
   static const Color natureGreen = Color(0xFF4CAF50);
   static const Color earthyBrown = Color(0xFF6D4C41);
   static const Color softMintGreen = Color(0xFF98E2A1);
@@ -23,8 +22,8 @@ class NatureQuestApp extends StatelessWidget {
   // Global ThemeData
   ThemeData get appTheme => ThemeData(
         fontFamily: 'Poppins',
-        primaryColor: lsuPurple,
-        scaffoldBackgroundColor: softMintGreen,  
+        primaryColor: softLavender,
+        scaffoldBackgroundColor: softSunYellow,  
         textTheme: const TextTheme(
           displayLarge: TextStyle(
             fontFamily: 'Merienda',
@@ -34,7 +33,7 @@ class NatureQuestApp extends StatelessWidget {
           headlineMedium: TextStyle(
             fontFamily: 'Merienda',
             fontWeight: FontWeight.w600,
-            color: lsuPurple,
+            color: softLavender,
           ),
           bodyMedium: TextStyle(
             fontFamily: 'Poppins',
@@ -44,13 +43,13 @@ class NatureQuestApp extends StatelessWidget {
           labelLarge: TextStyle(
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w600,
-            color: lsuGold,
+            color: softSunYellow,
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: lsuPurple,
-            foregroundColor: lsuGold,
+            backgroundColor: softLavender,
+            foregroundColor: softSunYellow,
             textStyle: const TextStyle(
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w700,

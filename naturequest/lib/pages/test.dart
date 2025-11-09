@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '/../main.dart';
+import 'package:http/http.dart' as http;
 
+String status = "Check on DB";
 
-
+const base = 'http://100.111.150.67:8000'; 
 class Testpage extends StatefulWidget
 {
   const Testpage({super.key});
@@ -12,39 +14,28 @@ class Testpage extends StatefulWidget
 }
   class _TestpageState extends State<Testpage>
   {
-    String status = 'Waiting for NFC...';
-
-    Future<void> startNfcSession() async 
+    Future<void> checkhealth() async 
     {
-      setState(() => status = 'Starting NFC session...');
-      NfcAvailability isAvailable = await NfcManager.instance.checkAvailability();
-
-      if (isAvailable == NfcAvailability.enabled)
+      setState(() => status = "Checking....");
+      final r = await http.get(Uri.parse('$base/health'));
+      try
       {
-        setState(() => status = 'NFC session started. Waiting for target');
-        NfcManager.instance.startSession
-        (
-          pollingOptions: {NfcPollingOption.iso},
-          onDiscovered: (NfcTag tag) async 
-          {
-            try 
-            {
-              final msg = tag.data.toString();
-              setState(() => status = "msg: $msg");
-            }
-            catch(e)
-            {
-              setState(() => status = "Error");
-            }
-          }
-        );
+        if (r.statusCode == 200)
+        {
+          setState(() => status = "Database/Api is online!");
+        }
+        else
+        {
+          setState(() => status = "Http return this error code: ${r.statusCode}");
+        }
       }
-      else
+      catch (e) 
       {
-        setState(() => status = 'Still Waiting for Session to start.....');
+        setState(() => status = "Something Fucked up");
       }
     }
 
+    
   
   
     @override
@@ -61,7 +52,7 @@ class Testpage extends StatefulWidget
             children:
             [
               Text(status),
-              ElevatedButton(onPressed: startNfcSession, child: Text("Start Nfc"))
+              ElevatedButton(onPressed: checkhealth, child: Text("Check Health"))
             ]
           )
         )

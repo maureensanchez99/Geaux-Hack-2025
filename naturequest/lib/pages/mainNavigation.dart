@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dashboard.dart';
+import 'achievements.dart';
 import 'game.dart';
 import 'profile.dart';
 import '../main.dart';
@@ -12,10 +12,10 @@ class MainNavigation extends StatefulWidget {
 }
 
 class _MainNavigationState extends State<MainNavigation> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   final List<Widget> _pages = const [
-    DashboardPage(),
+    AchievementPage(),
     GamePage(),
     ProfilePage(),
   ];

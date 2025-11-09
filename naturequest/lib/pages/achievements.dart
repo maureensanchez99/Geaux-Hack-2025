@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '/../main.dart';
 
 class AchievementPage extends StatelessWidget {
@@ -13,6 +12,7 @@ class AchievementPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start, 
         children: [
+          const SizedBox(height: 20),
           Text(
             'Achievements', 
             style: TextStyle(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '/../main.dart';
+import 'mainNavigation.dart';
+import '../main.dart'; // fixed relative import
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -10,35 +11,70 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: NatureQuestApp.softSunYellow,
       body: Center(
-        child: Column( 
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              'assets/logo_design.svg',
-              height: 500,
-              width: 500,
-            ),
-            //const SizedBox(height: 80),
-            Text(
-              'Login Page',
-              style: TextStyle(
-                  fontFamily: 'Merienda',
-                  fontSize: 32,
-                  fontWeight: FontWeight.w700,
-                  color: NatureQuestApp.natureGreen,
-                  shadows: [
-                    Shadow(
-                      offset: const Offset(10.0, 5.0),
-                      blurRadius: 25.0,
-                      color: NatureQuestApp.earthyBrown.withOpacity(0.6),
-                    ),
-                  ]
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                'assets/logo_design.svg',
+                height: 300,
+                width: 300,
+              ),
+              const SizedBox(height: 40),
+
+              // Username field
+              SizedBox(
+                width: 300,
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: 'Enter your username',
+                  ),
                 ),
-                textAlign: TextAlign.center,
-            ),
-          ],
+              ),
+              const SizedBox(height: 30),
+
+              SizedBox(
+                width: 300,
+                child: TextFormField(
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: 'Enter your password',
+                  ),
+                ),
+              ),
+              const SizedBox(height: 50),
+
+              // Login button
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainNavigation()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: NatureQuestApp.softLavender,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                child: const Text(
+                  'Log In',
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: NatureQuestApp.softSunYellow,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-    ),
+      ),
     );
   }
 }

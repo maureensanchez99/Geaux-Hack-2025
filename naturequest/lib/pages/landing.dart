@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '/../main.dart';
-import 'test.dart';
 import 'mainNavigation.dart';
 import 'login.dart';
+import 'register.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -59,7 +59,7 @@ class LandingPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Testpage())
+                  MaterialPageRoute(builder: (context) => const RegisterPage())
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -72,12 +72,10 @@ class LandingPage extends StatelessWidget {
             ),
                         const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () 
-              {
-                Navigator.push
-                (
-                context,
-                MaterialPageRoute(builder: (context) => const MainNavigation())
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MainNavigation())
                 );
               },
               style: ElevatedButton.styleFrom(

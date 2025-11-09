@@ -1,4 +1,8 @@
-const int button_pins[] = {2, 3, 4, 7};
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x3F, 16, 2);
+
+const int button_pins[] = {16, 14, 4, 7};
 const int LED_pins[] = {5, 6, 9, 10};
 const int size = 4;
 const int seq_size = 5;
@@ -71,6 +75,15 @@ void failSequence (){
 }
 
 void finish(){
+  lcd.clear();
+  lcd.backlight();
+
+  lcd.setCursor (2,0);
+  lcd.print("You Won!");
+
+  lcd.setCursor (2,1);
+  lcd.print("2770");
+  
   for(int j = 0; j <= 5; j++){
     for(int i = 0; i <= 3; i++){
       analogWrite(LED_pins[i], 127);
@@ -83,6 +96,17 @@ void finish(){
 }
 
 void setup() {
+
+  lcd.init();
+  lcd.clear();
+  lcd.backlight();
+
+  lcd.setCursor (1,0);
+  lcd.print("Play This Game");
+
+  lcd.setCursor (0,1);
+  lcd.print("To Get Your Code!");
+
   pinMode(button_pins[0], INPUT_PULLUP);
   pinMode(button_pins[1], INPUT_PULLUP);
   pinMode(button_pins[2], INPUT_PULLUP);

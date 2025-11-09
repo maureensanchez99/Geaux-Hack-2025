@@ -15,11 +15,12 @@ class LandingPage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SvgPicture.asset(
               'assets/logo_design.svg',
-              height: 500,
-              width: 500,
+              height: 350,
+              width: 350,
             ),
             Text(
               'Choose an Option',
@@ -27,14 +28,14 @@ class LandingPage extends StatelessWidget {
                 fontFamily: 'Merienda',
                 fontSize: 32,
                 fontWeight: FontWeight.w700,
-                color: NatureQuestApp.natureGreen,
+                color: NatureQuestApp.earthyBrown,
                 shadows: [
                   Shadow(
                     offset: const Offset(10.0, 5.0),
                     blurRadius: 25.0,
                     color: NatureQuestApp.earthyBrown.withOpacity(0.6),
                   ),
-                ]
+                ],
               ),
               textAlign: TextAlign.center,
             ),
@@ -43,7 +44,7 @@ class LandingPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const LoginPage())
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -59,7 +60,7 @@ class LandingPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const RegisterPage())
+                  MaterialPageRoute(builder: (context) => const RegisterPage()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -70,22 +71,22 @@ class LandingPage extends StatelessWidget {
                 style: TextStyle(fontSize: 22),
               ),
             ),
-                        const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MainNavigation())
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-              ),
-              child: const Text(
-                'Enter Game',
-                style: TextStyle(fontSize: 22),
-              ),
-            ),
+            const SizedBox(height: 20),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => const MainNavigation()),
+            //     );
+            //   },
+            //   style: ElevatedButton.styleFrom(
+            //     padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+            //   ),
+            //   child: const Text(
+            //     'Enter Game',
+            //     style: TextStyle(fontSize: 22),
+            //   ),
+            // ),
           ],
         ),
       ),

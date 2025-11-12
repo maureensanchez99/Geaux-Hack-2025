@@ -1,5 +1,5 @@
 # naturequest  
-A mobile application that allows students to explore the campus and the nature within the grounds. 
+A mobile application that allows students to explore the campus and the nature within the grounds.
 
 ## Team Members:  
 - Maureen Sanchez (Design Lead)  
@@ -11,21 +11,7 @@ A mobile application that allows students to explore the campus and the nature w
 - Prompt: Create a product to help people touch grass/reconnect with nature  
 - Track: Advanced Track
 
-## Getting Started  
-
-This project is a starting point for a Flutter application.  
-
-A few resources to get you started if this is your first Flutter project:  
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)  
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)  
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.  
-
 ## Hardware Implementation
-
 Users embark on a nature-themed quest that takes them through 4 (vaguely named) games:
   - Mockingbird
   - Tree Hugs
@@ -43,3 +29,31 @@ completion code is displayed on an LCD screen, and the app leads them to the nex
 
 All code used for the hardware implementation will be located in the "questchallenges" directory, with explanations of 
 the game/challenge in each file, respectively. 
+
+## Demo Gallery  
+### Mobile Application
+Landing page
+![Screenshot_20251109_105527](https://github.com/user-attachments/assets/98958ab9-679a-4914-99c5-4ea09bd725ab)
+
+Gameplay page
+![Screenshot_20251109_105532](https://github.com/user-attachments/assets/7f2cebac-7aab-433b-a702-df6f53265d69)
+### Hardware Challenges  
+Tree Hugs  
+
+
+
+Uploading 20251109_132512.mp4…
+
+
+
+LSU Squirrel Chase  
+
+
+
+Nature Says  
+
+
+
+Mockingbird  
+
+
